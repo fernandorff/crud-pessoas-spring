@@ -29,15 +29,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pessoas/nome/haroldo",
+					"raw": "localhost:8080/pessoas/procurar?nome=haroldo",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"pessoas",
-						"nome",
-						"haroldo"
+						"procurar"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "haroldo"
+						}
 					]
 				}
 			},

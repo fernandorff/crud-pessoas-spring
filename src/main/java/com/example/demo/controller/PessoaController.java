@@ -40,16 +40,16 @@ public class PessoaController {
         return listarPessoasService.listarPessoas();
     }
 
+    @GetMapping("pessoas/procurar")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PessoaResponse> endpointListarPessoaPorNome(@RequestParam(value = "nome") String nome) {
+        return listarPessoasService.listarPessoasPorNome(nome);
+    }
+
     @GetMapping("pessoas/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PessoaResponse endpointObterPessoaPorId(@PathVariable(value = "id") Long id) {
         return obterPessoaService.obterPessoaPorId(id);
-    }
-
-    @GetMapping("pessoas/nome/{nome}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<PessoaResponse> endpointListarPessoaPorNome(@PathVariable(value = "nome") String nome) {
-        return listarPessoasService.listarPessoasPorNome(nome);
     }
 
     @PutMapping("pessoas/{id}")
@@ -63,5 +63,4 @@ public class PessoaController {
     public PessoaResponse endpointRemoverPessoa(@PathVariable(value = "id") Long id) {
         return removerPessoaService.removerPessoaPorId(id);
     }
-
 }

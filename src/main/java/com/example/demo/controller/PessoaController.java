@@ -48,8 +48,8 @@ public class PessoaController {
 
     @GetMapping("pessoas/nome/{nome}")
     @ResponseStatus(HttpStatus.OK)
-    public PessoaResponse endpointObterPessoaPorNome(@PathVariable(value = "nome") String nome) {
-        return obterPessoaService.obterPessoaPorNome(nome);
+    public List<PessoaResponse> endpointListarPessoaPorNome(@PathVariable(value = "nome") String nome) {
+        return listarPessoasService.listarPessoasPorNome(nome);
     }
 
     @PutMapping("pessoas/{id}")

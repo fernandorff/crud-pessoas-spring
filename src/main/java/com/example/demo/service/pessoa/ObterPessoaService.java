@@ -19,11 +19,4 @@ public class ObterPessoaService {
 
         return PessoaMapper.transformarModelEmResponse(pessoa);
     }
-
-    public PessoaResponse obterPessoaPorNome(String nome) {
-
-        Pessoa pessoa = pessoaRepository.getByNome(nome);
-
-        return PessoaMapper.transformarModelEmResponse(pessoa);
-    }
 }

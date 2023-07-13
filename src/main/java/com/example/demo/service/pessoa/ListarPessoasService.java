@@ -25,4 +25,14 @@ public class ListarPessoasService {
         }
         return pessoasList;
     }
+
+    public List<PessoaResponse> listarPessoasPorNome(String nome) {
+
+        List<PessoaResponse> pessoasList = new ArrayList<>();
+        for (Pessoa pessoa : pessoaRepository.findAllByNome(nome)) {
+            PessoaResponse response = PessoaMapper.transformarModelEmResponse(pessoa);
+            pessoasList.add(response);
+        }
+        return pessoasList;
+    }
 }

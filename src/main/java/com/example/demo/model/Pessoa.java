@@ -1,10 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.dto.request.PessoaRequest;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +12,7 @@ import lombok.ToString;
 @ToString(of = "id")
 @EqualsAndHashCode(of = "id")
 @Entity
+@Table(name = "pessoa")
 public class Pessoa {
 
     @Id
@@ -27,7 +25,7 @@ public class Pessoa {
 
     private double salario;
 
-    public void alterar(PessoaRequest request) {
+    public void alterarEssaPessoa(PessoaRequest request) {
         this.nome = request.getNome();
         this.cpf = request.getCpf();
         this.salario = request.getSalario();

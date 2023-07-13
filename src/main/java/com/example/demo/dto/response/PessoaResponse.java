@@ -2,11 +2,10 @@ package com.example.demo.dto.response;
 
 import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PessoaResponse {
 
     private Long id;

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.example.demo.mapper.PessoaMapper.toDto;
+import static com.example.demo.mapper.PessoaMapper.transformarModelEmResponse;
 
 @Service
 public class AlterarPessoaService {
@@ -17,14 +17,14 @@ public class AlterarPessoaService {
     private PessoaRepository pessoaRepository;
 
     @Transactional
-    public PessoaResponse alterar(Long id, PessoaRequest request) {
+    public PessoaResponse alterarPessoaPorId(Long id, PessoaRequest request) {
 
         Pessoa pessoa = pessoaRepository.getReferenceById(id);
 
-        pessoa.alterar(request);
+        pessoa.alterarEssaPessoa(request);
 
         pessoaRepository.save(pessoa);
 
-        return toDto(pessoa);
+        return transformarModelEmResponse(pessoa);
     }
 }

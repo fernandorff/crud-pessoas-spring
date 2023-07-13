@@ -6,15 +6,15 @@ import com.example.demo.dto.response.PessoaResponse;
 
 public class PessoaMapper {
 
-    public static Pessoa toEntity(PessoaRequest request) {
-        Pessoa entity = new Pessoa();
-        entity.setNome(request.getNome());
-        entity.setCpf(request.getCpf());
-        entity.setSalario(request.getSalario());
-        return entity;
+    public static Pessoa transformarRequestEmModel(PessoaRequest request) {
+        Pessoa model = new Pessoa();
+        model.setNome(request.getNome());
+        model.setCpf(request.getCpf());
+        model.setSalario(request.getSalario());
+        return model;
     }
 
-    public static PessoaResponse toDto(Pessoa entity) {
+    public static PessoaResponse transformarModelEmResponse(Pessoa entity) {
         PessoaResponse response = new PessoaResponse();
         response.setId(entity.getId());
         response.setNome(entity.getNome());

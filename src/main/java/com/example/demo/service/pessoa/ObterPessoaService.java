@@ -6,18 +6,18 @@ import com.example.demo.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static com.example.demo.mapper.PessoaMapper.toDto;
+import static com.example.demo.mapper.PessoaMapper.transformarModelEmResponse;
 
 @Service
-public class ObterPessoaPorIdService {
+public class ObterPessoaService {
 
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public PessoaResponse obter(Long id) {
+    public PessoaResponse obterPessoaPorId(Long id) {
 
         Pessoa pessoa = pessoaRepository.getReferenceById(id);
 
-        return toDto(pessoa);
+        return transformarModelEmResponse(pessoa);
     }
 }

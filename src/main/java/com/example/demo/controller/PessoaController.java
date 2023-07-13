@@ -20,7 +20,7 @@ public class PessoaController {
     private ListarPessoasService listarPessoasService;
 
     @Autowired
-    private ObterPessoaPorIdService obterPessoaPorIdService;
+    private ObterPessoaService obterPessoaService;
 
     @Autowired
     private AlterarPessoaService alterarPessoaService;
@@ -30,32 +30,32 @@ public class PessoaController {
 
     @PostMapping("pessoas")
     @ResponseStatus(HttpStatus.CREATED)
-    public PessoaResponse incluir(@RequestBody PessoaRequest request) {
-        return incluirPessoaService.incluir(request);
+    public PessoaResponse endpointIncluirPessoa(@RequestBody PessoaRequest request) {
+        return incluirPessoaService.incluirPessoa(request);
     }
 
     @GetMapping("pessoas")
     @ResponseStatus(HttpStatus.OK)
-    public List<PessoaResponse> listar() {
-        return listarPessoasService.listar();
+    public List<PessoaResponse> endpointListarPessoas() {
+        return listarPessoasService.listarPessoas();
     }
 
     @GetMapping("pessoas/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public PessoaResponse obterPorId(@PathVariable(value = "id") Long id) {
-        return obterPessoaPorIdService.obter(id);
+    public PessoaResponse endpointObterPessoaPorId(@PathVariable(value = "id") Long id) {
+        return obterPessoaService.obterPessoaPorId(id);
     }
 
     @PutMapping("pessoas/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public PessoaResponse alterar(@PathVariable(value = "id") Long id, @RequestBody PessoaRequest request) {
-        return alterarPessoaService.alterar(id, request);
+    public PessoaResponse endpointAlterarPessoa(@PathVariable(value = "id") Long id, @RequestBody PessoaRequest request) {
+        return alterarPessoaService.alterarPessoaPorId(id, request);
     }
 
     @DeleteMapping("pessoas/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public PessoaResponse remover(@PathVariable(value = "id") Long id) {
-        return removerPessoaService.remover(id);
+    public PessoaResponse endpointRemoverPessoa(@PathVariable(value = "id") Long id) {
+        return removerPessoaService.removerPessoaPorId(id);
     }
 
 }

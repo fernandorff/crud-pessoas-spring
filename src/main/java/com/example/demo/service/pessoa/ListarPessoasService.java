@@ -15,10 +15,10 @@ public class ListarPessoasService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public List<PessoaResponse> listar() {
+    public List<PessoaResponse> listarPessoas() {
 
         return pessoaRepository.findAll().stream()
-                .map(PessoaMapper::toDto)
+                .map(PessoaMapper::transformarModelEmResponse)
                 .collect(Collectors.toList());
     }
 }

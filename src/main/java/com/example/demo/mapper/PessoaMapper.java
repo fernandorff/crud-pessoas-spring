@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.Pessoa;
+import com.example.demo.model.Pessoa;
 import com.example.demo.dto.request.PessoaRequest;
 import com.example.demo.dto.response.PessoaResponse;
 

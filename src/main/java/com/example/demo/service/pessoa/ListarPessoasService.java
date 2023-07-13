@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.pessoa;
 
 import com.example.demo.dto.response.PessoaResponse;
 import com.example.demo.mapper.PessoaMapper;

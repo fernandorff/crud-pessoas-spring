@@ -2,12 +2,13 @@ package com.example.demo.service.pessoa;
 
 import com.example.demo.dto.response.PessoaResponse;
 import com.example.demo.mapper.PessoaMapper;
+import com.example.demo.model.Pessoa;
 import com.example.demo.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ListarPessoasService {
@@ -17,8 +18,11 @@ public class ListarPessoasService {
 
     public List<PessoaResponse> listarPessoas() {
 
-        return pessoaRepository.findAll().stream()
-                .map(PessoaMapper::transformarModelEmResponse)
-                .collect(Collectors.toList());
+        List<PessoaResponse> pessoasList = new ArrayList<>();
+        for (Pessoa pessoa : pessoaRepository.findAll()) {
+            PessoaResponse response = PessoaMapper.transformarModelEmResponse(pessoa);
+            pessoasList.add(response);
+        }
+        return pessoasList;
     }
 }

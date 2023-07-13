@@ -46,6 +46,12 @@ public class PessoaController {
         return obterPessoaService.obterPessoaPorId(id);
     }
 
+    @GetMapping("pessoas/nome/{nome}")
+    @ResponseStatus(HttpStatus.OK)
+    public PessoaResponse endpointObterPessoaPorNome(@PathVariable(value = "nome") String nome) {
+        return obterPessoaService.obterPessoaPorNome(nome);
+    }
+
     @PutMapping("pessoas/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PessoaResponse endpointAlterarPessoa(@PathVariable(value = "id") Long id, @RequestBody PessoaRequest request) {

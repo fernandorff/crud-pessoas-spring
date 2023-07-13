@@ -1,12 +1,11 @@
 package com.example.demo.service.pessoa;
 
-import com.example.demo.model.Pessoa;
 import com.example.demo.dto.response.PessoaResponse;
+import com.example.demo.mapper.PessoaMapper;
+import com.example.demo.model.Pessoa;
 import com.example.demo.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import static com.example.demo.mapper.PessoaMapper.transformarModelEmResponse;
 
 @Service
 public class ObterPessoaService {
@@ -16,8 +15,15 @@ public class ObterPessoaService {
 
     public PessoaResponse obterPessoaPorId(Long id) {
 
-        Pessoa pessoa = pessoaRepository.getReferenceById(id);
+        Pessoa pessoa = pessoaRepository.getById(id);
 
-        return transformarModelEmResponse(pessoa);
+        return PessoaMapper.transformarModelEmResponse(pessoa);
+    }
+
+    public PessoaResponse obterPessoaPorNome(String nome) {
+
+        Pessoa pessoa = pessoaRepository.getByNome(nome);
+
+        return PessoaMapper.transformarModelEmResponse(pessoa);
     }
 }
